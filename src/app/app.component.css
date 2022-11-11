@@ -1,0 +1,28 @@
+.example-card {
+  max-width: 400px;
+}
+
+.center-content {
+  text-align: -webkit-center;
+  position: absolute;
+	top: 50%;
+	left: 50%;
+  -ms-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+}
+
+.mat-tab-group {
+  margin-bottom: 48px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.btn-login {
+  width: 50%;
+}
+
+.title {
+  margin: 0px;
+}
