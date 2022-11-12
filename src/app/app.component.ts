@@ -13,8 +13,13 @@ export class AppComponent implements OnInit{
   reg_email: any;
   reg_password:any;
   reg_confirm_password:any;
+  
   constructor() { }
+  hide : boolean = true;
 
+  showHide() {
+    this.hide = !this.hide;
+  }
   ngOnInit() {
     
   }
