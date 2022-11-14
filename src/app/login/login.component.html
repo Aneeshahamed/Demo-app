@@ -1,0 +1,71 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<div class="center">
+    <div class="card">
+        <span class="card-title">Sign in to your account</span>
+        <form [formGroup]="loginForm">
+            <div class="mail-pwd">
+                <label>Email</label>   
+            </div>
+            <div class="form-group">
+                <div class="mail-pwd box">
+                    <input class="form-control" formControlName="Email" placeholder="example@gmail.com" type="email">
+                    <span class="txt-danger" *ngIf="loginForm.controls['Email'].touched && loginForm.controls['Email'].invalid">invalid</span>
+                    
+                </div>
+            </div >
+            <div class="grid-50-50">
+                <div class="mail-pwd-lbl">
+                    <label>Password </label>   
+                </div>
+                <div class="reset-pass">
+                    <a href="#">Forgot your password?</a>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="mail-pwd box">
+                    <input class="form-control" formControlName="Password" type="password" placeholder="Password">
+                    <span class="txt-danger" *ngIf="loginForm.controls['Password'].touched && loginForm.controls['Password'].invalid">invalid</span>
+                </div>
+            </div>
+            <div class="grid-50-50">
+                <div class="stay-sign-in">
+                    <label for="checkbox">
+                        <input type="checkbox" name="checkbox"> Stay SignIn
+                    </label>
+                </div>
+                <div class="reset-pass" style="padding-top: 15px;">
+                    <a routerLink="/register" >New User?</a>
+                </div>
+            </div>
+            <div class="sign-in">
+                <input [disabled]="loginForm.invalid" (click)="SignIn()" type="submit" value="Sign In">
+            </div>
+            <div class="sign-up-lal">
+                <span>Sign Up by</span>
+            </div>
+            <div class="sign-up-social-btns">
+                <table class="head-social-logo">
+                    <tr>
+                        <th>
+                            <a href="#" class="fa fa-google"></a>
+                        </th>
+                        <th>
+                            <a href="#" class="fa fa-facebook"></a>
+                        </th>
+                        <th>
+                            <a href="#" class="fa fa-instagram"></a>
+                        </th>
+                        <th>
+                            <a href="#" class="fa fa-twitter"></a>
+                        </th>
+                        <th>
+                            <a href="#" class="fa fa-yahoo"></a>
+                        </th> 
+                    </tr>
+                </table>  
+            </div>
+        </form>
+    </div>
+</div>

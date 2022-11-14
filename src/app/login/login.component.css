@@ -81,10 +81,10 @@ form {
 .stay-sign-in{
     padding-top: 15px;
 }
-.sign-up{
+.sign-in{
     padding-top: 15px;
 }
-.sign-up input{
+.sign-in input{
     width: 100%;
     background-color: #5469d4;
     border-radius: 8px;
