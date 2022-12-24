@@ -29,14 +29,14 @@
         </div>
         <div class="form-group">
             <div class="mail-pwd box">
-                <input class="form-control" formControlName="Cfm_Pwd" type="password" placeholder="Confirm Password">
-                <span class="txt-danger" *ngIf="RegForm.controls['Cfm_Pwd'].touched && RegForm.controls['Cfm_Pwd'].invalid">invalid</span>
-                <span class="txt-danger" *ngIf="RegForm.controls['Cfm_Pwd'].errors?.['pattern']">Password must contain at least 8 charecter</span>
+                <input class="form-control" formControlName="confirmPassword" type="password" placeholder="Confirm Password">
+                <span class="txt-danger" *ngIf="RegForm.controls['confirmPassword'].touched && RegForm.controls['confirmPassword'].invalid">invalid</span>
+                <span class="txt-danger" *ngIf="RegForm.controls['confirmPassword'].errors?.['pattern']">Password must contain at least 8 charecter</span>
             </div>
         </div>
-          <div class="sign-up">
+        <div class="sign-up">
               <input [disabled]="RegForm.invalid" (click)="SignUp()" type="submit" value="Sign Up">
-          </div>
+        </div>
       </form>
   </div>
 </div>

@@ -12,6 +12,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { LoginComponent } from './login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginServiceService } from './Services/login-service.service';
 
 @NgModule({
   declarations: [
@@ -27,11 +29,12 @@ import { LoginComponent } from './login/login.component';
     MatInputModule,
     MatButtonModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     MatIconModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [LoginServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

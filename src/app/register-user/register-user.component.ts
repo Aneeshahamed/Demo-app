@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder }  from '@angular/forms';
-import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginServiceService } from '../Services/login-service.service';
+import { SignupModel } from '../Models/SignupModel';
+import { HttpErrorResponse } from '@angular/common/http';
+import { DOCUMENT } from '@angular/common';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-register-user',
   templateUrl: './register-user.component.html',
@@ -8,9 +14,14 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 })
 export class RegisterUserComponent implements OnInit {
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder, private loginService : LoginServiceService, private router: Router) { }
 
   ngOnInit(): void {
+    this.RegForm = this.formBuilder.group({
+      Email : ['', Validators.required],
+      Password : ['', Validators.required],
+      confirmPassword : ['', Validators.required],
+    });
   }
 
   RegForm = new FormGroup({
@@ -21,7 +32,7 @@ export class RegisterUserComponent implements OnInit {
       Validators.required,
       Validators.minLength(8)
     ]),
-    Cfm_Pwd: new FormControl('',[
+    confirmPassword: new FormControl('',[
       Validators.required,
       Validators.pattern(
         /([a-zA-Z0-9][!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]){8,}/)
@@ -29,6 +40,19 @@ export class RegisterUserComponent implements OnInit {
     });
 
     SignUp(){
-      
+      if(this.RegForm.valid){
+        
+        this.loginService.postRegisterNewUser(this.RegForm.value).subscribe({
+          next:(res)=>{
+            alert("User Created Successfully");
+            this.router.navigate(['/login']);
+          },
+          
+          error:(res)=>{
+            
+            alert(res.value);
+          }
+        })
+      }
     }
 }
